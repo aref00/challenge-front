@@ -3,8 +3,8 @@ import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
-import 'tayeh-ui/dist/index.min.css';
-import TayehUi from 'tayeh-ui/dist/index.es.min.js';
+import 'chlng-ui/dist/index.min.css';
+import TayehUi from 'chlng-ui/dist/index.es.min.js';
 import '@/assets/styles/shared.scss';
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
