@@ -8,6 +8,8 @@ $jasm: #514F9A;
 $warm-grey: #707070;
 $form-bg: #eceeef;
 $danger: #cb2e25;
+$charcoal-grey: #373a3c;
+$dark-sky-blue: #5bc0de;
 $colors: (
     "primary" $primary $light $light,
     "black" $black $light $light,
@@ -19,6 +21,8 @@ $colors: (
     "warm-grey" $warm-grey $light $light,
     "form-bg" $form-bg $light $light,
     "danger" $danger $light $light,
+    "charcoal-grey" $charcoal-grey $light $light,
+	"dark-sky-blue" $dark-sky-blue $light $light,
 );
 
 @each $name, $color, $oposite, $text-color in $colors {
@@ -39,10 +43,6 @@ $colors: (
 	.ty-border-color-#{$name} {
 		border-color: $color !important;
 	}
-}
-
-.ty-color-primary {
-    color: #7166F9
 }
 // .blue-gd {
 //     background: linear-gradient(164.37deg, #409EFF -14.13%, #004E8F 110.56%);
