@@ -1,1 +1,1 @@
-declare module 'tayeh-ui/dist/index.es.min.js';
+declare module 'chlng-ui/dist/index.es.min.js';
