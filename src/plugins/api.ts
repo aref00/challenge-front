@@ -1,4 +1,4 @@
-import { LoginRequest } from '@/dto';
+import { LoginRequest, RegisterRequest } from '@/dto';
 import Axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { validate } from 'class-validator';
 
@@ -24,9 +24,23 @@ export class API {
     const errors = await validate(body);
     if (errors.length > 0) {
       alert(errorMessages[errors[0].property]);
-      throw new Error('اطلاعات وارد شده صحیح نمی ‌باشد.');
+      throw new Error('Login Failed!  User name and/or Password is invalid');
     }
-    return this.axios.get('/user/login', {
+    return this.axios.post('/user/login', {
+      headers: {
+        Authorization: this.token,
+      },
+    });
+  }
+
+  async register(body: RegisterRequest): Promise<AxiosResponse> {
+    body = new RegisterRequest(body);
+    const errors = await validate(body);
+    if (errors.length > 0) {
+      alert(errorMessages[errors[0].property]);
+      throw new Error('Register Failed!  User name and/or Password is invalid');
+    }
+    return this.axios.post('/user/register', {
       headers: {
         Authorization: this.token,
       },
