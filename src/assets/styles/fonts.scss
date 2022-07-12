@@ -1,0 +1,74 @@
+﻿/**
+*
+*	Name:			IRAN Sans-Serif Font
+*	Version:		5.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 25, 2012
+*	Updated on:		Sep 01, 2017
+*	Website:		             http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+
+// $irsans: (
+// 	900 "IRANSansWeb_Black" "IRANSansWeb(FaNum)_Black",
+// 	bold "IRANSansWeb_Bold" "IRANSansWeb(FaNum)_Bold",
+// 	500 "IRANSansWeb_Medium" "IRANSansWeb(FaNum)_Medium",
+// 	300 "IRANSansWeb_Light" "IRANSansWeb(FaNum)_Light",
+// 	200 "IRANSansWeb_UltraLight" "IRANSansWeb(FaNum)_UltraLight",
+// 	normal "IRANSansWeb" "IRANSansWeb(FaNum)",
+// );
+// $font-url: "https://static.ty-sb1.tayeh.ir/tayeh-panel/assets/fonts";
+// @each $font-weight, $name, $fa_name in $irsans {
+// 	@font-face {
+// 		font-family: IRANSans;
+// 		font-style: normal;
+// 		font-weight: $font-weight;
+// 		src: url('#{$font-url}/irsans/eot/#{$name}.eot');
+// 		src: url('#{$font-url}/irsans/eot/#{$name}.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+// 			 url('#{$font-url}/irsans/woff2/#{$name}.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+// 			 url('#{$font-url}/irsans/woff/#{$name}.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+// 			 url('#{$font-url}/irsans/ttf/#{$name}.ttf') format('truetype');
+// 		font-display: swap;
+// 	}
+	
+// 	@font-face {
+// 		font-family: IRANSans-fa;
+// 		font-style: normal;
+// 		font-weight: $font-weight;
+// 		src: url('#{$font-url}/irsans-fa/eot/#{$fa_name}.eot');
+// 		src: url('#{$font-url}/irsans-fa/eot/#{$fa_name}.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+// 			 url('#{$font-url}/irsans-fa/woff2/#{$fa_name}.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+// 			 url('#{$font-url}/irsans-fa/woff/#{$fa_name}.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+// 			 url('#{$font-url}/irsans-fa/ttf/#{$fa_name}.ttf') format('truetype');
+// 		font-display: swap;
+// 	}
+// }
+
+@font-face {
+    font-family: 'iransansxv';
+	src: url('../fonts/IRANSansXV.woff2') format('woff2'),
+	url('../fonts/IRANSansXV.woff') format('woff-variations'),
+    /* will be the standard and works in Safari now */
+    url('../fonts/IRANSansXV.woff') format('woff');
+    /* for the other supporting browsers */
+    font-weight: 100 900;
+    font-display: fallback;
+
+}
+@font-face {
+    font-family: iransansx;
+    src: url('../fonts/IRANSansX-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: iransansx;
+    src: url('../fonts/IRANSansX-Bold.woff') format('woff');
+    font-weight: 700;
+}

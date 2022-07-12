@@ -1,0 +1,55 @@
+$primary: #1c7cd5;
+$black: #373a3c;
+$grey: #596080;
+$green: #20CE66;
+$blue: #4180EE;
+$light: #F8F9FA;
+$jasm: #514F9A;
+$warm-grey: #707070;
+$form-bg: #eceeef;
+$danger: #cb2e25;
+$colors: (
+    "primary" $primary $light $light,
+    "black" $black $light $light,
+    "grey" $grey $black $black,
+    "green" $green $light $light,
+    "blue" $blue $light $light,
+    "light" $light $black $black,
+    "jasm" $jasm $light $light,
+    "warm-grey" $warm-grey $light $light,
+    "form-bg" $form-bg $light $light,
+    "danger" $danger $light $light,
+);
+
+@each $name, $color, $oposite, $text-color in $colors {
+	.ty-color-#{$name} {
+		color: $color;
+	}
+	.ty-outline-#{$name} {
+		outline: $color auto 1px;
+	}
+	.ty-outline-#{$name}.ty-hoverable:not(.disable):hover {
+		background-color: $color;
+		color: $oposite;
+	}
+	.ty-bg-#{$name} {
+		background-color: $color;
+		color: $text-color;
+	}
+	.ty-border-color-#{$name} {
+		border-color: $color !important;
+	}
+}
+
+.ty-color-primary {
+    color: #7166F9
+}
+// .blue-gd {
+//     background: linear-gradient(164.37deg, #409EFF -14.13%, #004E8F 110.56%);
+// }
+// .free-acc-bg {
+//     background: linear-gradient(90.63deg, #00C2F1 3.18%, #00E7F7 91.72%);
+// }
+// .premium-acc-bg {
+//     background: linear-gradient(90.63deg, #FFB347 3.18%, #FFCC33 91.72%);
+// }
