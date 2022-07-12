@@ -1,19 +1,22 @@
 <template>
   <div id="app" dir="ltr">
-    <div class="ty-relative">
-      <router-view v-if="checkFlexGapSupport()" />
-      <old-browser-container v-else>
-        <router-view />
-      </old-browser-container>
-    </div>
+    <notification-wrapper>
+      <div class="ty-relative">
+        <router-view v-if="checkFlexGapSupport()" />
+        <old-browser-container v-else>
+          <router-view />
+        </old-browser-container>
+      </div>
+    </notification-wrapper>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import OldBrowserContainer from './components/OldBrowserContainer.vue';
+import NotificationWrapper from './components/NotificationWrapper.vue';
 
 @Component({
-  components: { OldBrowserContainer },
+  components: { OldBrowserContainer, NotificationWrapper },
 })
 export default class App extends Vue {
   isSupported?: boolean;
