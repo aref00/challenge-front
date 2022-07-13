@@ -1,8 +1,10 @@
 <template>
   <div class="articles" v-loading="loading">
-    <h2 class="my-3">All Posts</h2>
+    <h2 class="my-3">
+      {{ typeof post.slug === 'string' ? 'Edit' : 'New' }} Article
+    </h2>
     <form>
-      <ty-row gutter="32" dir="ltr">
+      <ty-row :gutter="32" dir="ltr">
         <ty-col :xs="24" :sm="24" :md="14" :lg="16" :xl="18">
           <div class="ty-flex ty-flex-col ty-gap-15">
             <ty-input
@@ -58,10 +60,15 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({})
 export default class NewArticlesView extends Vue {
   loading = false;
+  post: any = {};
 
   submit(e: Event) {
     e.preventDefault();
     this.loading = true;
+  }
+
+  mounted() {
+    this.post.slug = this.$route.params.slug;
   }
 }
 </script>

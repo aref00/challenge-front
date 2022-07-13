@@ -54,6 +54,14 @@ const routes: Array<RouteConfig> = [
             /* webpackChunkName: "new-article" */ '../views/NewArticlesView.vue'
           ),
       },
+      {
+        path: 'edit/:slug',
+        name: 'edit',
+        component: () =>
+          import(
+            /* webpackChunkName: "new-article" */ '../views/NewArticlesView.vue'
+          ),
+      },
     ],
   },
 ];
