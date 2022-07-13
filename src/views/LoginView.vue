@@ -48,13 +48,12 @@ import { LoginRequest, ShowNotification } from '@/dto';
 export default class LoginView extends Vue {
   @Inject('notif') showNotification!: ShowNotification;
   private body = new LoginRequest();
-
   async submit(e: Event) {
     e.preventDefault();
-    console.log('clicked');
-
     try {
-      await this.$api.login(this.body);
+      const res = await this.$api.login(this.body);
+      this.$api.setUser(res.data);
+      this.$router.replace('/articles');
     } catch (err) {
       this.showNotification(
         'Login Failed!',

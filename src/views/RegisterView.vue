@@ -48,7 +48,7 @@
 <script lang="ts">
 import { Component, Inject, Vue } from 'vue-property-decorator';
 import CustomForm from '@/components/CustomForm.vue';
-import { LoginRequest, ShowNotification } from '@/dto';
+import { RegisterRequest, ShowNotification } from '@/dto';
 @Component({
   components: {
     CustomForm,
@@ -56,14 +56,14 @@ import { LoginRequest, ShowNotification } from '@/dto';
 })
 export default class LoginView extends Vue {
   @Inject('notif') showNotification!: ShowNotification;
-  private body = new LoginRequest();
+  private body = new RegisterRequest();
 
   async submit(e: Event) {
     e.preventDefault();
-    console.log('clicked');
-
     try {
-      await this.$api.login(this.body);
+      const res = await this.$api.register(this.body);
+      this.$api.setUser(res.data);
+      this.$router.replace('/articles');
     } catch (err) {
       this.showNotification(
         'Register Failed!',

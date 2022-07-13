@@ -15,7 +15,7 @@ const errorMessages: { [key: string]: string } = {
 };
 
 export class API {
-  constructor(baseURL: string) {
+  constructor(baseURL?: string) {
     // this.token = `Bearer ${process.env.VUE_APP_ACCESS}`;
     this.axios = Axios.create({
       baseURL: baseURL || process.env.VUE_APP_APIURL,
@@ -25,16 +25,27 @@ export class API {
 
   axios: AxiosInstance;
   token?: string;
+  user?: LoginResponse;
 
   setToken(token: string) {
     this.token = token;
+    localStorage.setItem('token', token); // not a good thing to do. (but since it's just a demonstration).
+  }
+
+  setUser(user: LoginResponse) {
+    this.user = user;
+    this.token = user.token;
+    localStorage.setItem('token', user.token); // not a good thing to do. (but since it's just a demonstration).
   }
 
   async login(body: LoginRequest): Promise<AxiosResponse<LoginResponse>> {
     body = new LoginRequest(body);
+    console.log(body);
+
     const errors = await validate(body);
+    console.log(errors);
+
     if (errors.length > 0) {
-      alert(errorMessages[errors[0].property]);
       throw new Error('Login Failed!  User name and/or Password is invalid');
     }
     return this.axios.post('/user/login');
@@ -43,10 +54,12 @@ export class API {
   async register(
     body: RegisterRequest,
   ): Promise<AxiosResponse<RegisterResponse>> {
+    console.log('body', body);
     body = new RegisterRequest(body);
+    console.log('body', body);
     const errors = await validate(body);
+    console.log(errors);
     if (errors.length > 0) {
-      alert(errorMessages[errors[0].property]);
       throw new Error('Register Failed!  User name and/or Password is invalid');
     }
     return this.axios.post('/user/register');
@@ -85,7 +98,6 @@ export class API {
     body = new CreateArticleRequset(body);
     const errors = await validate(body);
     if (errors.length > 0) {
-      alert(errorMessages[errors[0].property]);
       throw new Error('Please Fill all required fields, and try again.');
     }
     return this.axios.post('/articles');
@@ -97,8 +109,8 @@ export class API {
 }
 export default class Plugin {
   version = '0.0.1';
-  static install(Vue: any, options: { baseURL: string }) {
-    const api = new API(options.baseURL);
+  static install(Vue: any, options?: { baseURL: string }) {
+    const api = new API(options?.baseURL);
     Object.defineProperty(Vue.prototype, '$api', {
       get() {
         return api;
