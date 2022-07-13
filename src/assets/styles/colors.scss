@@ -10,6 +10,7 @@ $form-bg: #eceeef;
 $danger: #cb2e25;
 $charcoal-grey: #373a3c;
 $dark-sky-blue: #5bc0de;
+$active-link: rgba(255, 255, 255, 0.15);
 $colors: (
     "primary" $primary $light $light,
     "black" $black $light $light,
@@ -23,6 +24,7 @@ $colors: (
     "danger" $danger $light $light,
     "charcoal-grey" $charcoal-grey $light $light,
 	"dark-sky-blue" $dark-sky-blue $light $light,
+	"active-link"	$active-link $light $light,
 );
 
 @each $name, $color, $oposite, $text-color in $colors {

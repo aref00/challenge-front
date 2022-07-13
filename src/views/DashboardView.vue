@@ -10,12 +10,26 @@
         <ul class="p-0">
           <li>
             <router-link to="/articles">
-              <ty-button class="full-width text-left">All Articles</ty-button>
+              <ty-button
+                radius="0"
+                class="full-width text-left"
+                :color="
+                  page === 'articles' || page === 'pagination'
+                    ? 'active-link'
+                    : 'primary'
+                "
+                >All Articles</ty-button
+              >
             </router-link>
           </li>
           <li>
             <router-link to="/articles/new">
-              <ty-button class="full-width text-left">New Article</ty-button>
+              <ty-button
+                radius="0"
+                class="full-width text-left"
+                :color="page == 'new' ? 'active-link' : 'primary'"
+                >New Article</ty-button
+              >
             </router-link>
           </li>
         </ul>
@@ -39,7 +53,13 @@ import DashboardHeader from '@/components/DashboardHeader.vue';
     DashboardHeader,
   },
 })
-export default class LoginView extends Vue {}
+export default class LoginView extends Vue {
+  page?: string | null | undefined = 'articles';
+  mounted() {
+    this.page = this.$route.name;
+    console.log('page', this.page);
+  }
+}
 </script>
 
 <style scoped>

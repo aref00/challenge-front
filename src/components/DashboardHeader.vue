@@ -2,18 +2,20 @@
   <div class="header ty-bg-charcoal-grey full-width">
     <!-- <div> -->
     <div class="ty-flex ty-space-between py-1 py-md-2 px-2 px-md-4">
-      <a
-        href="/articles"
+      <router-link
+        to="/articles"
         class="ty-flex ty-gap-10 align-items-center ty-color-white"
       >
-        <div class="ty-flex ty-gap-5 ty-flex-wrap">
+        <div
+          class="ty-flex ty-gap-10 ty-flex-wrap align-items-center ty-color-white"
+        >
           <h1 class="fw-800 fs-14 fs-sm-18 fs-md-20 fs-lg-22 my-0">
             Arvan Challenge
           </h1>
           <span>Welcome {{ user.username }}</span>
         </div>
         <!-- <div class="tayeh-name fw-900 fs-20"> <a :href="tayeh_link"> تایه </a> | <router-link to="/">{{instance_username}}</router-link></div> -->
-      </a>
+      </router-link>
       <div class="ty-flex align-items-center">
         <div>
           <ty-button

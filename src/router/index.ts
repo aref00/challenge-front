@@ -39,9 +39,19 @@ const routes: Array<RouteConfig> = [
     children: [
       {
         path: '',
+        name: 'articles',
         component: () =>
           import(
             /* webpackChunkName: "articles" */ '../views/ArticlesView.vue'
+          ),
+        children: [{ path: 'page/:page', name: 'pagination' }],
+      },
+      {
+        path: 'new',
+        name: 'new',
+        component: () =>
+          import(
+            /* webpackChunkName: "new-article" */ '../views/NewArticlesView.vue'
           ),
       },
     ],
