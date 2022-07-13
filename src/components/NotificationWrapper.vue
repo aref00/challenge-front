@@ -2,7 +2,13 @@
   <div>
     <div class="notifications p-3 fs-16">
       <div
-        class="notification py-2 pl-3 pr-2 ty-flex ty-space-between align-items-center"
+        :style="{
+          marginTop: item.top,
+        }"
+        :class="[
+          'notification py-2 pl-3 pr-2 ty-flex ty-space-between align-items-center',
+          item.color,
+        ]"
         v-for="(item, i) in notifications"
         :key="i"
       >
@@ -34,12 +40,19 @@ type Notification = {
   id: number;
   title: string;
   content: string;
+  color: string;
+  top: string | number;
 };
 @Component({})
 export default class NotificationWrapper extends Vue {
-  @Provide('notif') showNotification(title: string, content: string) {
+  @Provide('notif') showNotification(
+    title: string,
+    content: string,
+    color = 'danger',
+    top = 0,
+  ) {
     const id = this.notifications.length;
-    this.notifications.push({ title, content, id });
+    this.notifications.push({ title, content, id, color, top });
     setTimeout(() => {
       this.notifications = this.notifications.filter((n) => n.id !== id);
     }, 8000);
@@ -50,18 +63,21 @@ export default class NotificationWrapper extends Vue {
 
 <style lang="scss" scoped>
 .notifications {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column-reverse;
   gap: 10px;
   right: 0;
-  top: 0;
   max-width: 100%;
   width: 520px;
   z-index: 999;
   .notification {
     background: #e7cecd;
     color: #9f4f48;
+    &.success {
+      background: #d5e6c7;
+      color: #4b713d;
+    }
     border: solid 1px var(--pinkish-grey);
   }
 }

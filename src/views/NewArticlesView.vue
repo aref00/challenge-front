@@ -55,12 +55,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Inject, Vue } from 'vue-property-decorator';
 
 @Component({})
 export default class NewArticlesView extends Vue {
   loading = false;
   post: any = {};
+  @Inject('notif') show: any;
 
   submit(e: Event) {
     e.preventDefault();
