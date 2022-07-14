@@ -53,7 +53,7 @@ import DashboardHeader from '@/components/DashboardHeader.vue';
     DashboardHeader,
   },
 })
-export default class LoginView extends Vue {
+export default class DashboardView extends Vue {
   page?: string | null | undefined = 'articles';
   mounted() {
     this.page = this.$route.name;

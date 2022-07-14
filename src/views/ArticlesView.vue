@@ -20,8 +20,34 @@
   </div>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { Component, Inject, Vue } from 'vue-property-decorator';
+import CustomForm from '@/components/CustomForm.vue';
+import { Article, ShowNotification } from '@/dto';
+@Component({
+  components: {
+    CustomForm,
+  },
+})
+export default class ArticlesView extends Vue {
+  @Inject('notif') showNotification!: ShowNotification;
+  private articles: Article[] = [];
+  private count = 0;
+  private page = 1;
+  async loadArticles() {
+    try {
+      const res = await this.$api.getArticles();
+      this.articles = res.data.articles;
+      this.count - res.data.articlesCount;
+    } catch (err) {
+      this.showNotification('Failed Loading Data!', 'Please try again.');
+    }
+  }
+
+  mounted() {
+    this.loadArticles();
+  }
+}
 </script>
 
 <style></style>

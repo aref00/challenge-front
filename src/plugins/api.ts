@@ -17,6 +17,7 @@ const errorMessages: { [key: string]: string } = {
 export class API {
   constructor(baseURL?: string) {
     // this.token = `Bearer ${process.env.VUE_APP_ACCESS}`;
+    this.token = localStorage.getItem('token');
     this.axios = Axios.create({
       baseURL: baseURL || process.env.VUE_APP_APIURL,
       timeout: 3000,
@@ -24,7 +25,7 @@ export class API {
   }
 
   axios: AxiosInstance;
-  token?: string;
+  token: string | null;
   user?: LoginResponse;
 
   setToken(token: string) {

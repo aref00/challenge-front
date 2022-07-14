@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Inject, Prop, Provide, Vue } from 'vue-property-decorator';
+import { Component, Provide, Vue } from 'vue-property-decorator';
 type Notification = {
   id: number;
   title: string;

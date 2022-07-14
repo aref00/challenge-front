@@ -54,7 +54,7 @@ import { RegisterRequest, ShowNotification } from '@/dto';
     CustomForm,
   },
 })
-export default class LoginView extends Vue {
+export default class RegisterView extends Vue {
   @Inject('notif') showNotification!: ShowNotification;
   private body = new RegisterRequest();
 
