@@ -1,11 +1,12 @@
 export type Article = {
+  id?: number;
   slug: string;
   title: string;
   description: string;
   body: string;
   tagList: string[];
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt?: Date;
   favorited: boolean;
   favoritesCount: number;
   author: {

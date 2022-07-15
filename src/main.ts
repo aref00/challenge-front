@@ -6,7 +6,7 @@ import store from './store';
 import 'chlng-ui/dist/index.min.css';
 import TayehUi from 'chlng-ui/dist/index.es.min.js';
 import '@/assets/styles/shared.scss';
-
+import 'floating-vue/dist/style.css';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)

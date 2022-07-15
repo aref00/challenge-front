@@ -14,7 +14,7 @@
                 radius="0"
                 class="full-width text-left"
                 :color="
-                  page === 'articles' || page === 'pagination'
+                  ['articles', 'pagination'].indexOf(this.$route.name) !== -1
                     ? 'active-link'
                     : 'primary'
                 "
@@ -27,7 +27,11 @@
               <ty-button
                 radius="0"
                 class="full-width text-left"
-                :color="page == 'new' ? 'active-link' : 'primary'"
+                :color="
+                  ['new', 'active-link'].indexOf(this.$route.name) !== -1
+                    ? 'active-link'
+                    : 'primary'
+                "
                 >New Article</ty-button
               >
             </router-link>

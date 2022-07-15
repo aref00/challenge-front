@@ -24,13 +24,13 @@ const routes: Array<RouteConfig> = [
   {
     path: '/articles',
     name: 'dashboard',
-    beforeEnter: async (to, from, next) => {
-      if (isAuthed()) {
-        next();
-      } else {
-        next('/login?next=' + to.fullPath);
-      }
-    },
+    // beforeEnter: async (to, from, next) => {
+    //   if (isAuthed()) {
+    //     next();
+    //   } else {
+    //     next('/login?next=' + to.fullPath);
+    //   }
+    // },
     component: () =>
       import(/* webpackChunkName: "dashboard" */ '../views/DashboardView.vue'),
     children: [

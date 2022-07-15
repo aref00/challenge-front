@@ -85,6 +85,14 @@ export class API {
     });
   }
 
+  async deleteArticles(slug: string): Promise<AxiosResponse<string[]>> {
+    return this.axios.delete(`/articles/${slug}`, {
+      headers: {
+        Authorization: `Token ${this.token}`,
+      },
+    });
+  }
+
   async getArticle(slug: string): Promise<AxiosResponse<LoginResponse>> {
     return this.axios.get(`/articles/${slug}`, {
       headers: {
