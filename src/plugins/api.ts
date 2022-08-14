@@ -49,7 +49,7 @@ export class API {
     if (errors.length > 0) {
       throw new Error('Login Failed!  User name and/or Password is invalid');
     }
-    return this.axios.post('/user/login');
+    return this.axios.post('/users/login', { user: body });
   }
 
   async register(
@@ -63,7 +63,7 @@ export class API {
     if (errors.length > 0) {
       throw new Error('Register Failed!  User name and/or Password is invalid');
     }
-    return this.axios.post('/user/register');
+    return this.axios.post('/users/register', { user: body });
   }
 
   async getUser(): Promise<AxiosResponse<LoginResponse>> {
